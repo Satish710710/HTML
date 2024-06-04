@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+ 
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "menu content"
+        "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 200px 1fr;
+    height: 100vh;
+}
+ 
+header {
+    grid-area: header;
+    background: #4CAF50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+ 
+nav {
+    grid-area: menu;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+ 
+nav a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    background: #444;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+}
+ 
+nav a:hover {
+    background: #555;
+}
+ 
+main {
+    grid-area: content;
+    padding: 20px;
+    background: #fff;
+    overflow-y: auto;
+}
+ 
+footer {
+    grid-area: footer;
+    background: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+}

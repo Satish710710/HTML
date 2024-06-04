@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIMS 2021 - Web Technologies Course</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            BITS Pilani<br>
+            WIMS 2021<br>
+            Web Technologies Course
+        </header>
+        <nav>
+            <a href="#" onclick="loadModule('cloud_computing.html')">Cloud Computing</a>
+            <a href="#" onclick="loadModule('c_programming.html')">C Programming</a>
+            <a href="#" onclick="loadModule('java.html')">Java</a>
+            <a href="#" onclick="loadModule('python.html')">Python</a>
+            <a href="#" onclick="loadModule('networking.html')">Networking</a>
+            <a href="#" onclick="loadModule('html.html')">HTML</a>
+        </nav>
+        <main id="contentFrame">
+            Content Frame
+        </main>
+        <footer>
+            Website designed by Satish Nandam and 2021wb86606
+        </footer>
+    </div>
+ 
+    <script>
+        function loadModule(module) {
+            console.log(`Loading module: ${module}`);
+            fetch(module)
+                .then(response => {
+                    console.log(`Response status: ${response.status}`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(`Module content loaded successfully.`);
+                    document.getElementById('contentFrame').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error(`Error loading module content: ${error}`);
+                    document.getElementById('contentFrame').innerHTML = 'Error loading module content.';
+                });
+        }
+    </script>
+</body>
+</html>
